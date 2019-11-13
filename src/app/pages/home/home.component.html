@@ -1,0 +1,24 @@
+<a [routerLink]="['/auth/login']">Login</a>
+<h1>{{count}}</h1>
+<button type="button" (click)="add()"> ADD </button>
+<!-- <pre>{{uv$ | async | json}}</pre> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>縣市</th>
+      <th>站台</th>
+      <th>緯度</th>
+      <th>經度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of uv$ | async">
+      <td>{{item.county}}</td>
+      <td>{{item.siteName}}</td>
+      <td>{{item.lat}}</td>
+      <td>{{item.lon}}</td>
+      <td><button (click)="openGoogleMap(item)">Open Google Map</button></td>
+    </tr>
+  </tbody>
+</table>
